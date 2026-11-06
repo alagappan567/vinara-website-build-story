@@ -11,20 +11,35 @@ The site was built almost entirely by prompting an AI coding agent (Claude Code)
 
 ## The finished site
 
-**Logo preloader.** A line drawing of the site elevation shown while the page loads.
-![Preloader](screenshots/01-preloader.png)
-
-**Hero.** A full-screen drone view of the warehouse that scrubs frame by frame as you scroll, with a ticker of stats running along the bottom.
-![Hero](screenshots/02-hero.png)
-
-**Services.** Draggable cards in a curved arc, with a ribbon of text running underneath.
-![Services](screenshots/03-services-arc.png)
-
-**Live 3D site plan.** A real-time 3D model of each warehouse park. You can rotate it, zoom in, and tap a building to walk inside.
-![Live 3D](screenshots/04-live-3d-site-plan.png)
-
-**Our Work.** A gallery that scrolls on its own, with cards that open to show project details.
-![Our Work](screenshots/05-our-work.png)
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="screenshots/01-preloader.png" alt="Logo preloader"><br>
+      <b>Logo preloader.</b> A line drawing of the site elevation shown while the page loads.
+    </td>
+    <td width="50%" valign="top">
+      <img src="screenshots/02-hero.png" alt="Hero"><br>
+      <b>Hero.</b> A drone view of the warehouse that plays frame by frame as you scroll, with a stats ticker along the bottom.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="screenshots/03-services-arc.png" alt="Services"><br>
+      <b>Services.</b> Draggable cards in a curved arc, with a ribbon of text running underneath.
+    </td>
+    <td width="50%" valign="top">
+      <img src="screenshots/04-live-3d-site-plan.png" alt="Live 3D site plan"><br>
+      <b>Live 3D site plan.</b> A real-time 3D model of each warehouse park. Rotate it, zoom in, and tap a building to walk inside.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="screenshots/05-our-work.png" alt="Our Work"><br>
+      <b>Our Work.</b> A gallery that scrolls on its own, with cards that open to show project details.
+    </td>
+    <td width="50%"></td>
+  </tr>
+</table>
 
 ---
 
