@@ -1,773 +1,795 @@
 # Prompts
 
-Every prompt we gave the AI coding agent (Claude Code) while building the Vinara Infra LLP website, in the order they were sent, typos and all.
-
-- 📷 means screenshots of the site were attached to that prompt to show what to change.
-- Plain housekeeping prompts (commit, push, which repo, env files) are left out.
-- API keys, database URLs, passwords and personal emails are removed or shown as `[REDACTED]`.
-
-
-## Phase 1 — First build (Sep 2026)
-
-1. 📷×1 You are given a task to integrate an existing React component in the codebase *(long pasted spec, expand below)*
-
-   <details><summary>Full prompt</summary>
-
-   ```text
-   You are given a task to integrate an existing React component in the codebase
-   
-   The codebase should support:
-   - shadcn project structure  
-   - Tailwind CSS
-   - Typescript
-   
-   If it doesn't, provide instructions on how to setup project via shadcn CLI, install Tailwind or Typescript.
-   
-   Determine the default path for components and styles. 
-   If default path for components is not /components/ui, provide instructions on why it's important to create this folder
-   Copy-paste this component to /components/ui folder:
-   ```tsx
-   team.tsx
-   "use client";
-   
-   import Image from "next/image";
-   
-   import { Marquee } from "@/demos/ui/marquee";
-   
-   const teamMembers = [
-     {
-       image:
-         "https://cdn.21st.dev/assets/mirror/f4/f43137dada970ee6a29a0497d1f699d54b92e5381350eaa66dc827e3ffb11645.jpg",
-       name: "Patrick Stewart",
-       role: "CEO - Founder",
-     },
-     {
-       image:
-         "https://cdn.21st.dev/assets/mirror/d5/d549c11c16ad2335895c39339d1a4307b648b24a6baae68662246cf9bd37ac13.jpg",
-       name: "Alena Rosser",
-       role: "Director of Content",
-     },
-     {
-       image:
-         "https://cdn.21st.dev/assets/mirror/e0/e058437411e954b747056a494f26349751828f12c2137a883e5aebbd1fcf5eef.jpg",
-       name: "Fletch Skinner",
-       role: "Tech Manager",
-     },
-     {
-       image:
-         "https://cdn.21st.dev/assets/mirror/45/45ba21cbafae178989cd3652799f42123a80e0ac44065ac00cbb265ea948bc41.jpg",
-       name: "Marc Spector",
-       role: "Director of Content",
-     },
-     {
-       image:
-         "https://cdn.21st.dev/assets/mirror/90/904d97602d25b1b5ef0f4058abad6d8185d8cebd0750771404a934a44dd537fb.jpg",
-       name: "Natalia Skinner",
-       role: "Cnippet Researcher",
-     },
-     {
-       image:
-         "https://cdn.21st.dev/assets/mirror/3b/3b6a929c98b85177bcc2eb4606a71b7487011128756dbf0adda24e803ca70ed7.jpg",
-       name: "David Kim",
-       role: "Engineering Lead",
-     },
-   ];
-   
-   export default function Component() {
-     return (
-       <section className="relative w-full overflow-hidden bg-white py-12 md:py-24 dark:bg-background">
-         <div>
-           <svg
-             className="absolute right-0 bottom-0 text-neutral-200 dark:text-neutral-800"
-             fill="none"
-             height="154"
-             viewBox="0 0 460 154"
-             width="460"
-             xmlns="http://www.w3.org/2000/svg"
-           >
-             <g clipPath="url(#clip0_494_1104)">
-               <path
-                 d="M-87.463 458.432C-102.118 348.092 -77.3418 238.841 -15.0744 188.274C57.4129 129.408 180.708 150.071 351.748 341.128C278.246 -374.233 633.954 380.602 548.123 42.7707"
-                 stroke="currentColor"
-                 strokeLinecap="round"
-                 strokeLinejoin="round"
-                 strokeWidth="40"
-               />
-             </g>
-             <defs>
-               <clipPath id="clip0_494_1104">
-                 <rect fill="white" height="154" width="460" />
-               </clipPath>
-             </defs>
-           </svg>
-         </div>
-   
-         <div className="relative z-10 mx-auto max-w-7xl">
-           <div className="mx-auto mb-16 flex max-w-5xl flex-col items-center px-6 text-center lg:px-0">
-             <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-star-icon lucide-user-star"><path d="M16.051 12.616a1 1 0 0 1 1.909.024l.737 1.452a1 1 0 0 0 .737.535l1.634.256a1 1 0 0 1 .588 1.806l-1.172 1.168a1 1 0 0 0-.282.866l.259 1.613a1 1 0 0 1-1.541 1.134l-1.465-.75a1 1 0 0 0-.912 0l-1.465.75a1 1 0 0 1-1.539-1.133l.258-1.613a1 1 0 0 0-.282-.866l-1.156-1.153a1 1 0 0 1 .572-1.822l1.633-.256a1 1 0 0 0 .737-.535z"/><path d="M8 15H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg>
-             </div>
-   
-             <h1 className="relative mb-4 font-medium text-4xl text-neutral-900 tracking-tight sm:text-5xl dark:text-neutral-100">
-               Creative Cnippet Members
-               <svg
-                 className="absolute -top-2 -right-8 -z-10 w-24 text-neutral-200 dark:text-neutral-700"
-                 fill="currentColor"
-                 height="86"
-                 viewBox="0 0 108 86"
-                 width="108"
-                 xmlns="http://www.w3.org/2000/svg"
-               >
-                 <path
-                   d="M38.8484 16.236L15 43.5793L78.2688 15L18.1218 71L93 34.1172L70.2047 65.2739"
-                   stroke="currentColor"
-                   strokeLinecap="round"
-                   strokeLinejoin="round"
-                   strokeWidth="28"
-                 />
-               </svg>
-             </h1>
-             <p className="max-w-2xl text-neutral-600 dark:text-neutral-400">
-               Cnippet connects you with the most advanced tech solutions,
-               empowering seamless communication.
-             </p>
-           </div>
-   
-           <div className="relative w-full">
-             <div className="pointer-events-none absolute top-0 left-0 z-10 h-full w-32 bg-linear-to-r from-white to-transparent dark:from-background" />
-             <div className="pointer-events-none absolute top-0 right-0 z-10 h-full w-32 bg-linear-to-l from-white to-transparent dark:from-background" />
-   
-             <Marquee className="[--gap:1.5rem]" pauseOnHover>
-               {teamMembers.map((member) => (
-                 <div
-                   className="group flex w-64 shrink-0 flex-col"
-                   key={member.name}
-                 >
-                   <div className="relative h-92 w-full overflow-hidden rounded-2xl bg-neutral-100 dark:bg-neutral-800">
-                     <Image
-                       alt={member.name}
-                       className="h-full w-full object-cover grayscale transition-all duration-300 hover:grayscale-0"
-                       fill
-                       src={member.image}
-                     />
-                     <div className="absolute bottom-0 w-full rounded-lg bg-neutral-100/85 p-2 dark:bg-neutral-800/80">
-                       <h3 className="font-semibold text-neutral-900 dark:text-neutral-100">
-                         {member.name}
-                       </h3>
-                       <p className="text-neutral-600 text-sm dark:text-neutral-400">
-                         {member.role}
-                       </p>
-                     </div>
-                   </div>
-                 </div>
-               ))}
-             </Marquee>
-           </div>
-   
-           <div className="mx-auto mt-20 max-w-3xl px-6 text-center lg:px-0">
-             <p className="mb-8 font-medium text-lg text-neutral-900 leading-relaxed md:text-xl dark:text-neutral-100">
-               The exceptional support from Cnippet truly impressed us. We
-               suggested an improvement, and their team implemented it with
-               remarkable speed!
-             </p>
-             <div className="flex flex-col items-center gap-3">
-               <div className="relative h-14 w-14 overflow-hidden rounded-full">
-                 <Image
-                   alt="Natalia Kara"
-                   className="h-full w-full object-cover"
-                   fill
-                   src="https://cdn.21st.dev/assets/mirror/21/2150915ffd93601725345aee4ec87bcdb0f992a8b016d0afba59be5a9b497b5b.jpg"
-                 />
-               </div>
-               <div className="text-center">
-                 <p className="font-semibold text-neutral-900 dark:text-neutral-100">
-                   Natalia Kara
-                 </p>
-                 <p className="text-neutral-600 text-sm dark:text-neutral-400">
-                   CTO · Cnippet Collection
-                 </p>
-               </div>
-             </div>
-           </div>
-         </div>
-       </section>
-     );
-   }
-   
-   
-   demo.tsx
-   "use client";
-   
-   import Image from "next/image";
-   
-   import { Marquee } from "@/demos/ui/marquee";
-   
-   const teamMembers = [
-     {
-       image:
-         "https://cdn.21st.dev/assets/mirror/f4/f43137dada970ee6a29a0497d1f699d54b92e5381350eaa66dc827e3ffb11645.jpg",
-       name: "Patrick Stewart",
-       role: "CEO - Founder",
-     },
-     {
-       image:
-         "https://cdn.21st.dev/assets/mirror/d5/d549c11c16ad2335895c39339d1a4307b648b24a6baae68662246cf9bd37ac13.jpg",
-       name: "Alena Rosser",
-       role: "Director of Content",
-     },
-     {
-       image:
-         "https://cdn.21st.dev/assets/mirror/e0/e058437411e954b747056a494f26349751828f12c2137a883e5aebbd1fcf5eef.jpg",
-       name: "Fletch Skinner",
-       role: "Tech Manager",
-     },
-     {
-       image:
-         "https://cdn.21st.dev/assets/mirror/45/45ba21cbafae178989cd3652799f42123a80e0ac44065ac00cbb265ea948bc41.jpg",
-       name: "Marc Spector",
-       role: "Director of Content",
-     },
-     {
-       image:
-         "https://cdn.21st.dev/assets/mirror/90/904d97602d25b1b5ef0f4058abad6d8185d8cebd0750771404a934a44dd537fb.jpg",
-       name: "Natalia Skinner",
-       role: "Cnippet Researcher",
-     },
-     {
-       image:
-         "https://cdn.21st.dev/assets/mirror/3b/3b6a929c98b85177bcc2eb4606a71b7487011128756dbf0adda24e803ca70ed7.jpg",
-       name: "David Kim",
-       role: "Engineering Lead",
-     },
-   ];
-   
-   export default function Component() {
-     return (
-       <section className="relative w-full overflow-hidden bg-white py-12 md:py-24 dark:bg-background">
-         <div>
-           <svg
-             className="absolute right-0 bottom-0 text-neutral-200 dark:text-neutral-800"
-             fill="none"
-             height="154"
-             viewBox="0 0 460 154"
-             width="460"
-             xmlns="http://www.w3.org/2000/svg"
-           >
-             <g clipPath="url(#clip0_494_1104)">
-               <path
-                 d="M-87.463 458.432C-102.118 348.092 -77.3418 238.841 -15.0744 188.274C57.4129 129.408 180.708 150.071 351.748 341.128C278.246 -374.233 633.954 380.602 548.123 42.7707"
-                 stroke="currentColor"
-                 strokeLinecap="round"
-                 strokeLinejoin="round"
-                 strokeWidth="40"
-               />
-             </g>
-             <defs>
-               <clipPath id="clip0_494_1104">
-                 <rect fill="white" height="154" width="460" />
-               </clipPath>
-             </defs>
-           </svg>
-         </div>
-   
-         <div className="relative z-10 mx-auto max-w-7xl">
-           <div className="mx-auto mb-16 flex max-w-5xl flex-col items-center px-6 text-center lg:px-0">
-             <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-star-icon lucide-user-star"><path d="M16.051 12.616a1 1 0 0 1 1.909.024l.737 1.452a1 1 0 0 0 .737.535l1.634.256a1 1 0 0 1 .588 1.806l-1.172 1.168a1 1 0 0 0-.282.866l.259 1.613a1 1 0 0 1-1.541 1.134l-1.465-.75a1 1 0 0 0-.912 0l-1.465.75a1 1 0 0 1-1.539-1.133l.258-1.613a1 1 0 0 0-.282-.866l-1.156-1.153a1 1 0 0 1 .572-1.822l1.633-.256a1 1 0 0 0 .737-.535z"/><path d="M8 15H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg>
-             </div>
-   
-             <h1 className="relative mb-4 font-medium text-4xl text-neutral-900 tracking-tight sm:text-5xl dark:text-neutral-100">
-               Creative Cnippet Members
-               <svg
-                 className="absolute -top-2 -right-8 -z-10 w-24 text-neutral-200 dark:text-neutral-700"
-                 fill="currentColor"
-                 height="86"
-                 viewBox="0 0 108 86"
-                 width="108"
-                 xmlns="http://www.w3.org/2000/svg"
-               >
-                 <path
-                   d="M38.8484 16.236L15 43.5793L78.2688 15L18.1218 71L93 34.1172L70.2047 65.2739"
-                   stroke="currentColor"
-                   strokeLinecap="round"
-                   strokeLinejoin="round"
-                   strokeWidth="28"
-                 />
-               </svg>
-             </h1>
-             <p className="max-w-2xl text-neutral-600 dark:text-neutral-400">
-               Cnippet connects you with the most advanced tech solutions,
-               empowering seamless communication.
-             </p>
-           </div>
-   
-           <div className="relative w-full">
-             <div className="pointer-events-none absolute top-0 left-0 z-10 h-full w-32 bg-linear-to-r from-white to-transparent dark:from-background" />
-             <div className="pointer-events-none absolute top-0 right-0 z-10 h-full w-32 bg-linear-to-l from-white to-transparent dark:from-background" />
-   
-             <Marquee className="[--gap:1.5rem]" pauseOnHover>
-               {teamMembers.map((member) => (
-                 <div
-                   className="group flex w-64 shrink-0 flex-col"
-                   key={member.name}
-                 >
-                   <div className="relative h-92 w-full overflow-hidden rounded-2xl bg-neutral-100 dark:bg-neutral-800">
-                     <Image
-                       alt={member.name}
-                       className="h-full w-full object-cover grayscale transition-all duration-300 hover:grayscale-0"
-                       fill
-                       src={member.image}
-                     />
-                     <div className="absolute bottom-0 w-full rounded-lg bg-neutral-100/85 p-2 dark:bg-neutral-800/80">
-                       <h3 className="font-semibold text-neutral-900 dark:text-neutral-100">
-                         {member.name}
-                       </h3>
-                       <p className="text-neutral-600 text-sm dark:text-neutral-400">
-                         {member.role}
-                       </p>
-                     </div>
-                   </div>
-                 </div>
-               ))}
-             </Marquee>
-           </div>
-   
-           <div className="mx-auto mt-20 max-w-3xl px-6 text-center lg:px-0">
-             <p className="mb-8 font-medium text-lg text-neutral-900 leading-relaxed md:text-xl dark:text-neutral-100">
-               The exceptional support from Cnippet truly impressed us. We
-               suggested an improvement, and their team implemented it with
-               remarkable speed!
-             </p>
-             <div className="flex flex-col items-center gap-3">
-               <div className="relative h-14 w-14 overflow-hidden rounded-full">
-                 <Image
-                   alt="Natalia Kara"
-                   className="h-full w-full object-cover"
-                   fill
-                   src="https://cdn.21st.dev/assets/mirror/21/2150915ffd93601725345aee4ec87bcdb0f992a8b016d0afba59be5a9b497b5b.jpg"
-                 />
-               </div>
-               <div className="text-center">
-                 <p className="font-semibold text-neutral-900 dark:text-neutral-100">
-                   Natalia Kara
-                 </p>
-                 <p className="text-neutral-600 text-sm dark:text-neutral-400">
-                   CTO · Cnippet Collection
-                 </p>
-               </div>
-             </div>
-           </div>
-         </div>
-       </section>
-     );
-   }
-   
-   ```
-   
-   Install NPM dependencies:
-   ```bash
-   next
-   ```
-   
-   Extend existing Tailwind 4 index.css with this code (or if project uses Tailwind 3, extend tailwind.config.js or globals.css):
-   ```css
-   @import "tailwindcss";
-   @import "tw-animate-css";
-   
-   @theme inline {
-     --animate-marquee: marquee var(--duration) infinite linear;
-     --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
-   }
-   
-   
-   @keyframes marquee {
-     from {
-       transform: translateX(0);
-     }
-     to {
-       transform: translateX(calc(-100% - var(--gap)));
-     }
-   }
-   
-   @keyframes marquee-vertical {
-     from {
-       transform: translateY(0);
-     }
-     to {
-       transform: translateY(calc(-100% - var(--gap)));
-     }
-   }
-   ```
-   
-   Implementation Guidelines
-    1. Analyze the component structure and identify all required dependencies
-    2. Review the component's argumens and state
-    3. Identify any required context providers or hooks and install them
-    4. Questions to Ask
-    - What data/props will be passed to this component?
-    - Are there any specific state management requirements?
-    - Are there any required assets (images, icons, etc.)?
-    - What is the expected responsive behavior?
-    - What is the best place to use this component in the app?
-   
-   Steps to integrate
-    0. Copy paste all the code above in the correct directories
-    1. Install external dependencies
-    2. Fill image assets with Unsplash stock images you know exist
-    3. Use lucide-react icons for svgs or logos if component requires them
-   
-   
-   cjsnhe the sections in new way
-   ```
-
-   </details>
-
-2. add so,e random soruce image for now from internet amnd add placeholder
-3. 📷×1 no image placeholder
-4. 📷×1 updste nav bar to white colour so that the logo will be visible
-5. 📷×1 this length shoul be small
-6. 📷×1 this looks very bad
-7. 📷×1 use some  image from online taht is approirate add a placholder with text and make it veisually nest nest leve; for this amd make it viusuallyyy next level
-8. 📷×1 only 9:16 image should be there real format should be 9;16 NOT CROPPEES EXTAR FROM GOOGLE AND USE GOOD REAL 9:16 IMAGES
-
-## Phase 2 — The big redesign sprint (10 Oct 2026)
-
-9. 📷×1 9,96,553 safe manhours · 31,33,500.23 sq.ft delivered · 12 buildings we need remove this word from footer
-10. 📷×1 we need to remove the projects
-11. 📷×1 in admin panel we need to give a cess to edit add and delete this section in admin oane;
-12. 📷×1 Vinara Infra LLP provides technology-driven construction solutions for warehousing, industrial, and infrastructure projects, focusing on Safety, Efficiency and Quality.
-
-   remove this
-
-13. 📷×1 we need to keep the logo in the right side top texted removed place
-14. 📷×1 make the logo bigger in the place fully cover like that
-15. 📷×1 the site plan is not good thw warehouse how it will be very length with i need realistic warehouse shape pls
-16. 📷×1 stupid it should feel like real warehouse in 3d pls imap,emete ultrea real
-17. can we make still more very very ultra rewlistic
-18. can we make still more very very ultra rewlistic , interaction navigating inside that like that 3d model vwey deep next level 3d very very realistic
-19. the trucks and road should be trucks moving and c,ouds moving this things should be there and peoples waliking this things also should be there
-20. remove clouds
-21. 📷×1 shetter should open and the boxes exporting with people this kind of things is needed
-22. 📷×1 remove this hero section comoletely replace that full next next next multipls warehouse with peoples cards truck shetter inner walk in everything add here good hero section with 3d model 
-
-   replacete the same very very realistic
-
-23. 📷×1 reduce the left side text in to small view the 3d models fully
-24. 📷×1 remove the blue colour it looks separateed remove that fullly
-25. 📷×1 reduce the white fade in left sode
-26. 📷×1 eth buliding all the brasw with text looks very simple make it to mext level
-27. 📷×1 in mobile no nneed of more text simple text bt the hero section should be comopletey viisble
-28. 📷×1 this also looks very simple take this section next level
-29. 📷×1 listen the right and left side should be completely aligned left sode some empty space right side is very length in consostent feels very bad
-30. 📷×1 when i take my mouse some touch effect light effect zooming of the bar thi should be there
-31. 📷×1 redcue the height of the section now iot is too heoight reduce it
-32. 📷×2 the g should be white the box should be pale green colour and reduce the height of the secon image section
-33. 📷×1 here also the toucch effect zoom light effect should be teher
-34. 📷×1 make this also next level
-35. 📷×1 remove this im,age keep only title in next level
-36. 📷×1 here in the section we need horiontal gsap scroll with projects images line by line next leveel ararmnge,ent in presentation scroll way they will reolace the image throgh admin oanel from online drone shoots of the warehouse 
-
-   4 project image next level texts animation with continuos next mnext by horioxxpntal scrill animation image and text gsap scroll i need
-
-37. 📷×1 keep this in white bg itself
-38. 📷×1 remove that pattern bg
-39. gsap ??
-40. 📷×1 i need zig zag text crazy way and the images also zigzag i need crzzay way
-41. 📷×1 but the image should be in 16:8( view
-42. 📷×1 thios is not loadinf correctly this ection
-43. 📷×1 make this cards three in mobile it should be horixonatl scroll
-44. 📷×1 remove this
-45. 📷×1 make this hero sectiob very professional next level
-46. 📷×1 this two we need to do vertical photo of the founders
-47. 📷×1 the hero section directly i the ng with whote n o need separete blue anmd the atterm this kinmd of thismh
-48. 📷×2 use full width the gallery should be next level pls make it next level with full width dont leave emoty space in top remove that i have attched screen empty space above to filters
-49. 📷×1 make it left right fukl corner lt of empty spread the image
-50. the cards should be 16:9 and 9:16 rando,
-51. 📷×1 this two show it in diffrent current way is not good
-52. 📷×1 take from goigle image add 15+  ore image realted to warehouse
-53. 📷×1 remobve the white ng from the logo
-54. 📷×2 this should autoloop repeated image in loo[ like on refrence exact shape size look evrrthing should belike that
-55. 📷×1 the logo whte removeal is not coorect
-56. 📷×1 reduce height of 9:16 image
-57. the carres hero section should be very professional 
-   take the carrers section looks feel everything to next next next level
-
-58. 📷×1 the images are nit appropriate make it apporotrate image use frominetrnte
-59. 📷×2 can we able to show this in next level presentation way ??
-60. 📷×1 but the image should be visoible clearly
-61. 📷×1 can we able to reduce the white space down >>
-62. 📷×1 this section we meed to make next level this should be logo presenetedn section autoloop instead of company name add the logo take the logos from giogle
-63. 📷×1 this should gsap scroll way each projeect this is not good avtually
-64. 📷×1 this should gsap scroll way each projeect this is not good avtually in horxiaontal way this is not good actually place continouys the prject image with details in gsap scroll way
-65. the home page bg should be fully white only
-66. 📷×1 make this in two lines and listenn no need of box the let the logo in the same colour how the logo will be
-67. 📷×1 it should 16:9 image placbale and then manilay the image should be cleaarly visible 100 percfent
-68. 📷×1 add this last section of the home pagfe
-69. 📷×2 see the refrence it will be like arc and draggle qwe need to change thisee ction i ethat refrence like feel look drag everthing
-70. 📷×1 presedntation has some issue pls foix all image should 16:9 and the gsap scroll be next level
-71. 📷×1 lot emorty white space remove thata
-72. 📷×1 listen in the white empty space in the screen to joi n the team tap to carrers page jpin the team ike that make the text and button it should be carzy
-73. 📷×1 the text place it right and left side both side reduce the empty space
-74. 📷×2 this litreally not good why white box not good before itself it is good but make the box it mext level neart arremage,ent
-75. 📷×1 can we keep this two row and make it auto loop ??
-76. 📷×1 here when i take my mouse to the image then only it should stop until then it should not stop
-77. 📷×1 listen no need white fadde in corener and then add some text between like cptact use of the prject to bulid like this
-78. 📷×1 listen no need white fadde in corener and then add some text between the two rows like cptact use of the prject to bulid like this
-79. 📷×1 add some text below to that in the em,ptuy space and some button also
-80. 📷×1 lsietn this colour is there in website right i need to what colour does thge logo have analayse and tell me
-81. 📷×2 in mobile view can we able to make somw what fell like laptop kind of view like this any way for this ?
-82. Royal blue use royal theme insted of that some colour we were using in webiste uodate the colour in all llavce
-83. 📷×1 fix the logo
-84. 📷×1 remove tgis fro home page
-85. 📷×4 i am planning to make video and i will make the 3d scrool for this this how the warehouse wuill look 
-
-   they aksed the sceanrio should be like 
-   the drone side view of the warehouse structure take from the picture people trucks everthing should be there slowly enters intp the shutter and reveal the interorior of the warehouse and come out of the warehpuse and shows the drone view of the ware house again
-
-86. you give me prompt
-87. 📷×1 give both draaggable option
-88. 📷×1 still need dron view of full warehouse
-89. 📷×1 remove the second row
-90. 📷×1 remove the empty white space
-91. 📷×1 this also
-92. 📷×1 see this
-93. i need one continuous video
-94. 📷×1 when i take my mouse then ponly it should stop the auto loo[
-95. 📷×2 make the lamndmark also the same view like thenon partner section arc view
-96. no need of human
-97. the video should be speand some time isndie the i etrore of the warehouse
-98. i need in 15sec
-99. 📷×1 this should be in 16:9 view
-100. 📷×1 the image should be clear;y keep the text se[arete
-101. 📷×1 this how warehouse will be ?? crt ha i need very realistic video
-102. 📷×1 one thing the videp should fixnish by coming out showing the warehouse in staright view like ths refrence
-103. 📷×1 the middle image see the card up it os cutting the curve is not coorec t
-104. 📷×3 listen see this remove the empty space betwwen two section , not only here in whole webiste
-105. 📷×1 this should be last section of home page
-106. 📷×1 fix tis many logos should be reveealed in one atkleast three in screen in auto loop
-107. 📷×1 fix tis many logos should be reveealed in one atkleast three in screen in auto loop in mobile viewpnly
-108. 📷×1 this is the one listen start drrone angle move forward inside shgetter inside receaveal and come out should the front view
-109. which ai video toolmwill give realistic output ?
-110. which ai video model mwill give realistic output ?
-111. 📷×2 make this also arc view in about section
-112. 📷×1 listen about section hero section should be appropraaiate change the proffesional like use the image apporopaitr the abioyt
-113. 📷×4 about sectionn fully should be mnext level ui design right now it feels very simple and bad add icons ur wisg but it shiukld be next level next level
-
-   there us some scroll efecct now that is not good remove that
-
-
-   listen add the founder image with quote next level
-
-114. 📷×3 make service hero section next level currentky what we have is not professional make this visually next level next level
-115. 📷×1 remove quality tab mention the quality maoin section in planning it self 
-
-   rename the merged for planning and quality some good tab name 
-
-   we need tp remove quality
-
-116. 📷×3 the UI should be next next next level and make ot light effect the bards should be next keve;
-117. 📷×1 the nav bar when i switch omne tab to other the animation should be enxt lkevel amnd get quote button animation should be creative when i click
-118. 📷×1 in home we need add a section of the live 3d model to shpwcase in horsixontal view in home page 
-   there we need to have button and they should explore the project section 
-   for attracting people
-
-119. 📷×1 redcue the height of the section
-120. 📷×1 heer i cant zoom the 3d model
-121. 📷×1 in projects section np need of zig zag keep that nrml presention neat professction gsap scroll the text not mneed to be in zigzag
-122. 📷×1 make the box colour bright
-123. 📷×3 in controil and hsq should be arc like in homepage
-124. 📷×1 make this section viually next level and then th whol control amnd hsqe sgould be in white colour bg
-125. 📷×1 make this inn16:9 gsap scroll
-126. 📷×1 very small section hroxipantal separate scroll for this
-127. 📷×1 make this next level currenrttly looks very bad
-128. 📷×1 use apprpriate hero image for this get from google for this tab
-129. 📷×2 in public folder i have added 2nd half take that all image 
-
-   puit in the ouetr folder only ezgif-frame-301 rename till last  the file add that 151 imahges outer only 
-
-   we need use this image in ladning page hero section 
-   we need 3d scroll by usong this video GSAP
-
-130. 📷×1 make this visyally next level
-131. 📷×1 use left right gap make it in width content reducte theight of the section
-132. 📷×1 dont add any fade the image should be clearly visibale
-133. 📷×1 thos ytext should be visible with adding fade to bh
-134. 📷×1 make this whote colour it shoudl be enxt kevel
-135. 📷×1 remobve this add that marqueeeee autp scroll
-136. 📷×1 remoev this
-137. 📷×1 each two scrolls we need tell the story the text should left right side down and ledt top up alteanrnative
-138. 📷×1 bring the text down
-139. 📷×1 fix the mobile view
-140. 📷×1 afyer comoleteing hero section scroll the second section should go upoto the hero section after that last scroll the hero section should be sticky
-141. 📷×1 this should be fade out immediately when i scroll
-142. teh stry also should start after that fade out
-143. 📷×1 add a marqueee in diffrente style in second section starting
-144. 📷×1 his shoo big reuce heoght the text should be next kevel
-145. i need one marqueesss about our work project hanbdled cutomer reviews and bulid quality at bottom of the wbeite that should be sticku
-146. 📷×1 in mibile where and all ,like this cards is there should be horoxtaol scroll it should be in mobile only cacross the wbsite all cards should b horoxontal scroll lnly in mobile viw
-147. 📷×1 in mobile when i srroll this section it is flickering why >>
-148. 📷×1 this should next level in view
-149. 📷×1 make this next level
-150. 📷×1 reomve the white space between each section in all tabs in whole websiote strict rule
-151. make a get quote page next level nlw it look simople
-152. 📷×1 Capabilities
-
-   Warehousing & Logistics
-   Industrial Construction
-   Precast Construction
-   RMC Plant & Concrete Supply
-
-
-    fron contact cta at bottom
-
-153. apart from hero section and use white colour bg for rest
-154. 📷×1 use blue colpoiur for box
-155. 📷×1 we need to upodate company logo insted of vercel
-156. 📷×4 the arc cards as issue in mobile it gets hide down stucks pls analuyse the image correctly and the heor section n3d scroll down white layer comess 
-
-   i checked in IOS and then 3d section th text is overlapping first anayse deeply
-
-157. 📷×1 below white is coming that is due to animation but it should be like that
-
-## Phase 3 — Motion, ribbons & mobile polish (11 Oct 2026)
-
-158. 📷×1 Building today. Empowering
-   tomorrow.
-
-   here we need that what motivation is there in logo grpw together 
-   that Building today. Empowering
-   tomorrow.
-   not our motot
-
-159. 📷×1 when i take my mouse on cards then only it should stop
-160. 📷×1 see this text and button should ne next level
-161. 📷×1 i need this in text in  ribbon shape  cueved hanging on the section like that
-162. i need whole paga animation text reveal and the button crazy animation over the webiste
-163. i need pre-loader of our logo in the breathing way two when ever i rfresh that should come that should be next level 
-
-   like jelly fish breathing curvy way
-
-164. 📷×1 s shape i need it should two to section like overlap
-165. 📷×1 use width space intsed vertical more
-166. 📷×1 this text also should be next level and in very proefessssional crazy eye catchy way
-167. 📷×1 dont mtake to mucj emoty white space top and down
-168. 📷×1 the bule bar big is nt good
-169. 📷×1 after this the logo it should go and sit in the place of naavbar that logo i need like thaat of animation
-170. i need each section next level animation while going and it should be feel premium
-171. 📷×1 see above emoty white space
-172. 📷×1 make this width not in vertical more
-173. can we add more kind of animation first logo jelly way and any still next kevel design of any motion graohucs ??
-174. 📷×1 can we make this also in ribbon next level dancing jelly kind of way ?
-175. 📷×1 why extra whote space up ?
-176. 📷×1 make this also dancing jelly
-177. 📷×1 use width for this insead of vertical make it next level
-178. 📷×1 this water bubble rings are mit good
-179. 📷×1 make this also in dancing jelly kind of way
-180. 📷×2 in this if you see we have gap riight ?? u shape gap white gap in that we need make auto loop letter way and the second screenshot things there in contiuous loop 
-
-   u shaoe
-
-181. 📷×1 remove this add tge conatct us in nthe ribbon itself
-182. 📷×2 listen this i need in this plavce in U shape
-183. 📷×1 make this in ribbon
-184. 📷×1 make this nect level use full width touch feel zoom field
-185. make a service tab next level the text layout and everything
-186. 📷×1 redcue the hieght of the bar and section
-187. 📷×1 his photo should be jelly featury way
-188. 📷×1 no need of water bubbles this this warehouse indeustay think in mind anmd do it
-189. 📷×1 insetaed straight line loop make it interact two line make the line format in different soo that it will ka enext level
-190. 📷×1 overlapig
-191. 📷×1 we need to make thins section next level like that images is there that should be fully zoomed from the current position and then 3 rd scroll slow that expaond fully and then 4 th prohect like this i ned 
-
-   from second tarnsition full screen image with scroll next peorjct like tat
-
-192. 📷×1 make this 3d section height little bit incresaee
-193. 📷×1 still make it next level pls
-194. 📷×1 make this in gsapp hrozinatl scroll all project
-195. 📷×1 add this in ribbon like in thae home this data flow undr the arc
-196. 📷×1 add this diffrenet way like screen diaply with board that should be jelly like danacabel srhrinkable screen
-197. 📷×1 remogve the white soace
-198. 📷×1 the hero image make it approtriate extarct from google tat should slight zoom effect make this in hero section evry professional
-199. 📷×1 fix the organaisation order it should coorect i order by the role and esignation 
-   in home and lewadership page also
-
-200. 📷×1 use full wodth left and right emoty sopace the it should ayuto scroll gsap
-201. revert this
-202. 📷×1 the text and look feels bad make the etxt and carzy very proegssioma; down side white colour that feels very bad
-203. in mobile respvines very depply check and fix 
-   all the acdrs steps should be i the horsixoatl scrioll only in mobile 
-
-
-   maiky fix the ribbon the ribbon should be view like inkatop same in mobile doooo some stargey tp make the view same like laotop and fix everything 
-
-
-   maily all hero section thet text overlapp over text in mobile like thios is there fix that only in mobile this while taks is
-
-204. 📷×1 the image should bee 4:5 good view the text can be shrinked and each prohect should auto gsap scroll when i scroll each shkuld come
-205. 📷×1 in page size 100 the whole contemt should strictyly visibkle'
-206. 📷×1 this in page size 100 while co temt should come an tnn the text image ntg looks good make it vwwry prohefssison outstanding jro sectoon for this tab use aorooate image from giogke for this for this tab
-207. 📷×1 add terms codition privacy policy lot empty space
-208. 📷×1 fix the map the location should accurate
-209. 📷×1 why map ois in black colour annd itbshould be aacurate locationnshould be shown
-210. 📷×1 all titles ahould be like this eeffect with collur in whole webiste
-211. 📷×1 make this navbar looks next level let in same way but it need next next next level
-212. 📷×1 give the ieffect shack jelly where images is there in our wbsote stricy riuke
-
-## Phase 4 — Going live: email, database & media (15 Oct 2026)
-
-213. i need to know what we are cloduinary and neon base right ??
-214. now we were plannning to change to client side 
-
-   give me guide how to get api key in the two webiste
-
-215. now listen 
-   all the applky roles should be go to that email and then get in touch form also should go
-
-216. yes
-217. all the text and page should have animation
-
-## Phase 5 — Client feedback round (27–29 Oct 2026)
-
-218. 📷×2 read this and tell me your undersataidning and tell what things can be done through admin
-219. 📷×2 #1: the white logo background in the footer.
-   make the footer full white invert the blue colur to text  
-
-   #2: a logo upload for Partners, and showing the logos in the marquee. 
-   give them option inadmin panel to remove text and logo for that
-
-220. 📷×2 read the requiremnmets and tell me wht needs to be updated in code
-221. ignore if t admin panel change
-222. Remove AGM and update emails (#11)
-   Remove AGM from site.ts:46, QuoteStudio.tsx:73, the footer email and leadership.ts:21.
-   Put info@ in its place.
-   Expand the departments list to Managing Director, BD, Accounts, Planning, Quality, HSE and HR.
-   Careers email (#10): in enquiry/route.ts, send job applications to the HR email. Quote requests go to BD and the contact form to info@.
-
-
-    do this
-
-223. Control/QHSE page (#7)
-   Rewrite app/planning/page.tsx as clear steps: Preconstruction → Planning → Quality → Safety → Progress monitoring → Handover.
-   Remove the QA/QC hierarchy chart (QcOrgArc). do this
-
-224. test the comletely net load time and speed of webiste 3d models delay fix that and do the change and the load the hero 3d scroll coorrecty and check it evrything and admin panle 
-
-   ful securti forgot passowkr three time login faikure retry and this change password handle it
-
-225. 📷×2 show that has refrenc in leaadreship page
-226. 📷×1 this zoom in animationm in gsap looks very bad pls try some orher very bad zoom up and not need like it should be proefssional way should lok craxy way
-227. 📷×1 why 3d scroll quality reduced badly ???
-228. luisten i have 4k video covrt that high quality fast scrolling 30fps frames by frame asn use thatv
-229. 📷×1 home page leadship and leadship in admin where they change it should be updated for now keep some dummy image itdelf
-230. it should have dummy phto what we have in home page for now
-231. 📷×1 this should be evry evry evry relaistic use real 3d models [REDACTED] api key
-232. 📷×1 the roads and the warehouse all the stuffs shoulb very relasric striuct rule
-233. 📷×1 the roads and the warehouse all the stuffs shoulb very relasric striuct rule trucks cars and everthing
-234. 📷×1 whey evrything is doubled ??\
-235. check the soead and load it should not affect the webviste
-236. 📷×1 add this atlast in the leadership
-237. in our webiste all the email 
-
-   info@vinara.co.in tghis is the emaiul already resend key is there with you
-
-238. all place carrers and get in touch everything
+These are the prompts used to build the Vinara Infra LLP website, cleaned up so you can paste them straight into an AI coding agent. They follow the order the site was built in. Each prompt comes with pseudo code showing how the feature works.
+
+**How to use them**
+
+- Run them in order. Later prompts build on earlier ones.
+- Send one prompt at a time, check the result in the browser, then ask for tweaks.
+- Swap in your own company name, numbers and images.
+- Put API keys in environment variables. Never paste them into a prompt.
+
+## Contents
+
+1. [Project setup and design system](#1-project-setup-and-design-system)
+2. [Site-wide motion layer](#2-site-wide-motion-layer)
+3. [Logo preloader](#3-logo-preloader)
+4. [Floating navbar](#4-floating-navbar)
+5. [Scroll-scrubbed video hero](#5-scroll-scrubbed-video-hero)
+6. [Sticky bottom ticker](#6-sticky-bottom-ticker)
+7. [Curved card arc](#7-curved-card-arc)
+8. [Jelly ribbon and jelly frames](#8-jelly-ribbon-and-jelly-frames)
+9. [Live 3D site plan](#9-live-3d-site-plan)
+10. [Projects page](#10-projects-page)
+11. [Gallery](#11-gallery)
+12. [Leadership](#12-leadership)
+13. [Clients and partners marquee](#13-clients-and-partners-marquee)
+14. [Services page](#14-services-page)
+15. [Controls and QHSE page](#15-controls-and-qhse-page)
+16. [Careers, Get a Quote and contact emails](#16-careers-get-a-quote-and-contact-emails)
+17. [Admin panel](#17-admin-panel)
+18. [Mobile rules](#18-mobile-rules)
+19. [Speed and polish pass](#19-speed-and-polish-pass)
+
+---
+
+## 1. Project setup and design system
+
+```text
+Create a Next.js (App Router) + TypeScript + Tailwind CSS website for a
+construction company that builds Grade-A warehouses, industrial buildings and
+infrastructure. Pages: Home, About, Services, Projects, Controls & QHSE,
+Leadership, Gallery, Careers, Contact / Get a Quote, Privacy, Terms.
+
+Design system:
+- Royal-blue theme taken from the logo. Deep navy for text (#06204f), royal blue
+  for actions (#0048b0), soft blue tints for surfaces, and an amber accent used
+  sparingly.
+- Bold display font for headings, clean sans-serif for body text.
+- White page backgrounds. Only the hero sections are dark or photographic.
+- No empty white gaps between sections anywhere on the site.
+- Every page title gets the same treatment: the last words in a blue-to-amber
+  gradient.
+- Keep all page copy in /data files so it can be edited without touching
+  components.
+
+Install GSAP (with ScrollTrigger and SplitText), Lenis, Motion, three.js,
+React Three Fiber and Drei.
+```
+
+```text
+PSEUDO CODE
+
+theme tokens:
+  ink     = #06204f      // text
+  primary = #0048b0      // buttons, links
+  tint    = #eef4ff      // card surfaces
+  accent  = amber        // underline, gradient tail
+
+layout(page):
+  <Preloader/>           // shows only on a hard refresh
+  <Nav/>
+  <SmoothScroll>         // Lenis drives the scroll; GSAP listens to it
+    <main>{page}</main>
+    <Footer/>
+  </SmoothScroll>
+  <StickyMarquee/>       // fixed ticker along the bottom
+  <TextReveal/> <SectionFx/> <ButtonFx/>   // site-wide motion, mounted once
+
+content lives in /data/content/*.ts  ->  components only read from it
+```
+
+---
+
+## 2. Site-wide motion layer
+
+```text
+Add animation to the whole site without editing every component. Mount three
+helpers once in the root layout:
+
+1. Text reveal: every heading and paragraph reveals as it scrolls into view.
+   Headings rise word by word out of a line mask; paragraphs fade up softly.
+2. Section effects: each section opens from a rounded, inset panel to full
+   width as it scrolls in. Rows of cards tip up into place one after another.
+   Photos wipe open from a slight zoom and then drift gently against the scroll.
+3. Button effects: every pill-shaped button leans towards the cursor, fills
+   with colour from the point the cursor came in, sweeps a shine across itself,
+   and bursts into small sparks when clicked.
+
+Let any element opt out with a data attribute. Respect prefers-reduced-motion.
+Use Lenis for smooth scrolling and keep ScrollTrigger in sync with it.
+```
+
+```text
+PSEUDO CODE
+
+TextReveal:
+  on route change and on DOM mutation:
+    for el in querySelectorAll("main h1, h2, h3, p") not inside [data-no-reveal]:
+      if heading: split into words inside line masks
+                  ScrollTrigger(el, start "top 85%") -> words.from(yPercent 110, stagger)
+      else:       ScrollTrigger(el) -> el.from(opacity 0, y 24)
+
+SectionFx:
+  for section in main > section not [data-no-sx]:
+    curtain: clipPath inset(4% round 32px) -> inset(0) scrubbed to scroll
+    cards:   rows of >= 3 siblings -> batch.from(y 70, rotateX -14, opacity 0)
+    media:   img.from(scale 1.15, clip wipe) then parallax y while in view
+
+ButtonFx (event delegation on document):
+  pointerover pill  -> mark [data-fx-btn], set fill origin = cursor position
+  pointermove       -> translate button slightly toward cursor
+  pointerleave      -> drain fill toward exit point
+  click             -> spawn 8 sparks, fly out, fall with gravity, remove
+
+if prefers-reduced-motion: skip all of the above
+```
+
+---
+
+## 3. Logo preloader
+
+```text
+Build a preloader that shows on every hard refresh (not on in-site page
+changes). Style it like an engineering drawing sheet: corner marks, small
+labels ("Site Elevation", "Grade-A Warehousing", "Bengaluru · India") and a
+big percentage counter in the corner.
+
+In the middle, draw a site elevation line by line: a finished warehouse with a
+truck on the left, a steel frame under a tower crane on the right, and the logo
+mark standing on the ground line between them, with soft sun rays behind it.
+Below it, show the company name, a 12-block loading bar and the tagline
+"GROW TOGETHER".
+
+While loading, the logo "breathes" like a jellyfish: a slow, curvy
+squash-and-stretch. Show it for at least 3 seconds and at most 7. When it
+finishes, the curtain lifts and the logo flies along a curve into its exact
+spot in the navbar, landing on top of the navbar logo. Block scrolling while it
+is visible. Never show it on /admin.
+```
+
+```text
+PSEUDO CODE
+
+phase = "breathing"
+after max(3s, page load) or at 7s at the latest: phase = "leaving"
+
+while breathing:
+  draw SVG strokes one by one (stroke-dashoffset 1 -> 0, staggered delays)
+  logo CSS animation: scaleY 1 -> 1.06 -> 0.95, scaleX opposite (jelly breath)
+  counter ticks up to 100%, loading blocks fill
+  block wheel/touchmove, lenis.stop()
+
+on leaving:
+  freeze logo at its current breath pose
+  target = navbar logo rect, offset to where the mark sits inside it
+  hide the navbar's own mark (clip-path)
+  timeline:
+    squash (1.08, 0.94)
+    move x with power3.inOut and y with power4.inOut   // different eases make a curve
+    scale down to the target size
+    reveal navbar mark, fade flying logo
+  curtain slides up (CSS)
+  phase = "gone", lenis.start()
+```
+
+---
+
+## 4. Floating navbar
+
+```text
+Make the navbar a floating, rounded glass pill near the top of the screen:
+logo on the left, links in the middle, a "Get Quote" button on the right.
+
+- The active page has a solid royal-blue pill behind its link. The pill slides
+  smoothly to the new link when you change page.
+- A soft spotlight follows the cursor inside the bar.
+- A thin blue-to-amber progress line along the bottom of the bar.
+- The bar gets more compact once you scroll, hides when scrolling down, and
+  comes back when scrolling up.
+- The Get Quote button has an arrow in a circle, a shine sweep on hover and a
+  ripple on click.
+- On mobile: logo + menu button. The menu opens full screen and its close
+  button must always be visible above the overlay.
+```
+
+```text
+PSEUDO CODE
+
+on scroll:
+  compact = scrollY > 40
+  hidden  = scrollingDown && scrollY > 200
+  progress line scaleX = scrollY / (docHeight - viewport)
+
+on pointermove inside bar:
+  set CSS vars --x, --y  ->  radial-gradient spotlight at (--x, --y)
+
+active pill:
+  shared layout element (Motion layoutId="nav-pill") under the current link
+  -> animates position/width automatically when the route changes
+```
+
+---
+
+## 5. Scroll-scrubbed video hero
+
+```text
+Replace the home hero with a scroll-driven drone video. I have a 4K video of a
+warehouse: the camera starts in a drone view, flies through an open shutter,
+moves through the interior and comes back out to a straight-on front view.
+
+Cut it into frames (about 30 fps, WebP, in 1920 and 2560 widths) and play the
+frames on a full-screen canvas as the user scrolls, like Apple product pages.
+
+- Pin the hero while scrolling through about 7 screens of scroll.
+- Show the intro (badge, "Grow Together." headline, short text, Explore
+  Projects and Contact Us buttons) at the start. It fades out as soon as the
+  user scrolls.
+- Then tell a story in 4 captions that alternate bottom-right and top-left:
+  The Land (acres), The Build (buildings and sq.ft), The Standard (QHSE),
+  The Legacy (years of experience).
+- After the last frame, hold the picture while the next section slides up over
+  the hero.
+- Load frames progressively so a fast scroll never shows a blank canvas, and
+  use the smaller frames on phones.
+- On mobile, the hero must fill the full height with no white gap when the
+  browser address bar hides.
+```
+
+```text
+PSEUDO CODE
+
+FRAMES = 361
+width  = phone ? 1920 : (screen needs > 2000px ? 2560 : 1920)
+
+load order = every 32nd frame, then 16th, 8th, 4th, 2nd, 1st   // coarse-to-fine
+queue loads with at most 6 in flight
+when the user scrolls to a frame that isn't loaded:
+  move the 12 frames around it to the front of the queue
+
+render(frame):
+  pick the nearest decoded frame (search both directions)
+  draw it to cover the canvas (scale = max(cw/iw, ch/ih), centred)
+
+timeline = ScrollTrigger(pin hero, end "+=700%", scrub 0.6):
+  0.00 -> 1.00  state.frame: 0 -> FRAMES-1, onUpdate render
+  0.00 -> 0.03  intro copy: opacity 0, y -40
+  for i in 0..3:
+    t = 0.05 + i * 0.23
+    caption[i] in at t (from bottom-right or top-left), out at t + 0.13
+  1.00 -> 1.17  hold last frame
+
+canvas section height = 100lvh   // largest viewport, so no gap on mobile
+```
+
+---
+
+## 6. Sticky bottom ticker
+
+```text
+Add a ticker fixed to the bottom of every page. It scrolls continuously along a
+gently waving line, like a ribbon. Items:
+
+- OUR WORK: 213.06 acres under development across three parks
+- PROJECTS HANDLED: 12 buildings · 31,33,500 sq.ft built-up
+- CUSTOMERS: Trusted by Amazon · DHL · CBRE · Turner & Townsend
+- BUILD QUALITY: QHSE-driven delivery with in-house RMC and site controls
+- LEGACY: 37+ years of engineering experience
+
+Labels in spaced-out blue capitals, values in white, a small diamond between
+items, on a deep navy band. It pauses only while the mouse is over it.
+```
+
+```text
+PSEUDO CODE
+
+build SVG <path> for a sine wave across the screen
+<textPath href="#wave" startOffset={offset}> items repeated twice </textPath>
+
+every frame:
+  offset -= SPEED * dt * pace
+  if offset < -oneCopyWidth: offset += oneCopyWidth   // seamless loop
+  wave phase += DRIFT * dt                            // the wave itself slides
+pace eases to 0 on mouse enter, back to 1 on leave
+pause entirely when off screen (IntersectionObserver)
+```
+
+---
+
+## 7. Curved card arc
+
+```text
+Build a reusable "card arc" section: cards sit on the inside of a curved wall,
+as if you are standing inside a cylinder. The centre card is the smallest and
+faces you straight on. Cards towards the edges get taller and tilt inwards, so
+their bottom edges sweep into an arc.
+
+- The arc scrolls by itself in a loop and only stops while the mouse is on a
+  card.
+- It can be dragged left and right with the mouse or a finger.
+- On phones, use a tighter ring with about 3 cards in view, so it still looks
+  curved.
+- Under the arc, a curved text ribbon carries a line of text, e.g. "Eight
+  disciplines. One accountable team. We plan, build and hand it over."
+
+Use it for: Services on Home, the Our Work gallery, Landmark projects, and the
+Controls & QHSE steps.
+```
+
+```text
+PSEUDO CODE
+
+all sizes in --u = clamp(px, 1vw, px)   // scales with viewport
+
+for card i:
+  angle = (i - position) * stepAngle
+  transform = perspective(CAMERA)
+              rotateY(angle)
+              translateZ(-RADIUS)          // sit on the inside of the cylinder
+  cards past the far side wrap to the other end (loop)
+
+every frame:
+  position += dt / SECONDS_PER_CARD   unless hovered or dragging
+on drag:
+  if moved > 6px: it's a drag, not a click
+  position -= dx / cardWidth
+  on release: keep the momentum, then ease back to auto-scroll
+
+media (max-width: 767px): use COMPACT_RING (fewer cards per turn, closer camera)
+```
+
+---
+
+## 8. Jelly ribbon and jelly frames
+
+```text
+Add a playful "jelly" feel that still looks professional for an industrial
+company (no water bubbles):
+
+1. Jelly ribbon: a thick curved band that hangs across a section like a banner.
+   Text runs along it. It keeps a slow wave going, and wobbles where the
+   cursor touches it. Use it for "Contact us" and for key numbers under the
+   arcs. On a phone it must keep the same curved shape, not a flat slice.
+2. Jelly frame: a rounded-square photo frame whose edge ripples gently and
+   wobbles where the cursor crosses it. Use it on leader photos and feature
+   images.
+```
+
+```text
+PSEUDO CODE
+
+// both use the same spring chain
+points[N] along the ribbon centre line (or around a squircle for the frame)
+
+every frame (dt):
+  for p in points:
+    target  = wave(p.x, time)                       // travelling wave
+    force   = PULL * (target - p.y)
+            + TENSION * (neighbour avg - p.y)
+            - DAMPING * p.velocity
+    if pointer within POKE_REACH: force += push away from pointer
+    p.velocity += force * dt
+    p.y        += p.velocity * dt
+
+draw a smooth closed/open path through the points (midpoint quadratic curves)
+ribbon: text on a <textPath> along that path
+frame:  use the path as a clip-path for the image
+
+on phones: squeeze the chain into the visible part, so the whole curve fits
+```
+
+---
+
+## 9. Live 3D site plan
+
+```text
+Build a live 3D model of each warehouse park with React Three Fiber, as
+realistic as possible. Show it on Home in a "Walk our sites before you visit"
+section, and on the Projects page.
+
+Scene:
+- Long Grade-A warehouses with pitched metal roofs, roof-light strips, ridge
+  vents and solar panels, blue cladding, an office block at one end, loading
+  docks with shutters along the long side, and drive-in doors at the back.
+- Concrete yards, internal service roads, a compound wall, trees, street
+  lights, a staff car park, and a public road outside the gate.
+- Movement: trucks reversing onto docks while shutters open, trucks and cars
+  on the road, forklifts, workers carrying cartons, tower cranes on buildings
+  still under construction. No clouds.
+- Use real photo-textured 3D models (trucks, forklifts, cranes, cars) and
+  photo-scanned ground textures, compressed so they load fast.
+
+Interaction:
+- Drag to orbit. Click first, then scroll to zoom (so the page scroll still
+  works). Pinch to zoom on mobile.
+- Tap a building to walk inside it in first person: pallet racks, aisles, a
+  reach truck moving, dock doors open to daylight. Drag to look around, WASD or
+  arrow keys to move, or tap the floor to walk there.
+- Switch between parks with pills (NELA 1, NELA 2, Bikaner House).
+- A fullscreen button.
+
+Performance: only load the 3D code when the section is about to scroll into
+view, and start downloading it while the browser is idle.
+```
+
+```text
+PSEUDO CODE
+
+<Live3DShowcase>
+  requestIdleCallback(() => import("./MasterPlanScene"))     // prefetch
+  IntersectionObserver(rootMargin 400px) -> mount <Canvas>
+
+<MasterPlanScene site>
+  for b in site.buildings:
+    <Warehouse size, docks, status>
+      roof sheets + roof-lights + ridge vents + PV arrays
+      docks.map(d => <Shutter animated={d.inUse}/> + <Truck reversed/>)
+      status == "in progress" ? steel frame + <TowerCrane/> : full cladding
+    onClick -> enterBuilding(b)
+  <Ground textures: asphalt, grass, concrete (tiled)/>
+  <CompoundWall/> <Trees instanced/> <StreetLights/> <PublicRoad/>
+  <SiteLife>
+    trucks loop the service circuit, cars on the public road
+    workers walk dock fronts, carry a carton out, walk back empty
+  </SiteLife>
+  <OrbitControls enableZoom={focused}/>
+
+models: useGLTF(meshopt-compressed .glb)
+        one InstancedMesh per mesh, however many copies are placed
+
+<WarehouseInterior building>
+  racks (back-to-back pairs + aisles, 5 levels), high-bay lights
+  reach truck shuttles along the cross aisle
+  first-person camera at eye height:
+    drag = look, WASD/arrows = move, tap floor = walk to point
+```
+
+---
+
+## 10. Projects page
+
+```text
+Build the Projects page:
+
+1. Hero "Portfolio at a glance." with the live 3D site plan on the right and
+   key stats: acres, sq.ft built-up, buildings completed, buildings in
+   progress.
+2. "Every site. One standard." Three site cards (NELA 1, NELA 2, Bikaner
+   House) with acres, buildings, sq.ft and a progress bar.
+3. For each site, the 3D plan next to a summary card (total sq.ft, number of
+   buildings, a bar split by building) and one card per building: name,
+   status chip (Completed / Handed over / Work in progress), sq.ft and sq.m,
+   share of site, rank by area, and a "View photos & specs" link.
+4. A pinned full-screen building showcase: as you scroll, each building's photo
+   opens up from the bottom to fill the screen, with its name, client, area and
+   progress. The previous photo drifts back as the next one covers it.
+5. "Built alongside the best": clients, PMC partners and tenants in three
+   columns.
+6. Closing CTA "Have a project to build like these?" with a Contact Us button.
+```
+
+```text
+PSEUDO CODE
+
+SQM_PER_SQFT = 0.092903
+for site in sites:
+  total = sum(b.sqft for b in site.buildings)
+  for b in site.buildings:
+    b.share = b.sqft / total
+    b.rank  = position when sorted by sqft desc
+    b.sqm   = b.sqft * SQM_PER_SQFT
+
+BuildingShowcase:
+  pin frame; scroll length = buildings * (1 + HOLD) screens
+  for i, photo in photos:
+    if i > 0: photo.clipPath inset(100% 0 0 0) -> inset(0)   // wipe up
+              photos[i-1] -> scale 0.9, y -10%                // recede
+    caption lines rise in as the photo settles
+  reduced motion -> plain stack of full-height panels
+```
+
+---
+
+## 11. Gallery
+
+```text
+Build the Gallery:
+
+- Home "Our Work" section: an auto-looping row of photo cards on a royal-blue
+  panel. Hovering a card opens it up to show the category and a short
+  description.
+- Gallery page: full-width grid with no empty space at the top. A sticky
+  filter bar (All, NELA 1, NELA 2, Bikaner House, and activities). Mix 16:9
+  landscape cards with shorter 4:5 portrait cards in a stable random pattern.
+  Finished warehouses come first as a collage with the first photo large.
+- Clicking a photo opens a lightbox that steps through photos in the same
+  order.
+- Use real warehouse and construction photos. All photos are managed from the
+  admin panel.
+```
+
+```text
+PSEUDO CODE
+
+shape(i) = hash(i) % 3 == 0 ? "4:5" : "16:9"   // stable on server and client
+
+sections = [finished warehouses] + group(photos by activity) + [untagged]
+lightboxOrder = flatten(sections)
+
+filter chip -> photos.filter(p => p.site == chip || chip == "All")
+```
+
+---
+
+## 12. Leadership
+
+```text
+Build the leadership section and page:
+
+- Home: "The people behind the build." with portraits on a curved wall (the
+  card arc), auto-scrolling, with name and role under each. Order by role:
+  Managing Director, Directors, CEO, then heads of department, then project
+  managers.
+- Leadership page: a hero with team stats (today's manpower, staff and
+  operators, daily safe manhours), director cards with a jelly-frame photo,
+  title and a short bio, then the wider team.
+- If a leader has no photo yet, show a distinct stand-in portrait for each
+  person and "Name to be added" where needed, until the client uploads real
+  ones from the admin panel.
+- Put the manpower stats at the end of the page.
+```
+
+```text
+PSEUDO CODE
+
+ROLE_ORDER = ["Managing Director", "Director", "CEO", "Head", "Senior PM", "PM", "DPM", "Engineer"]
+leaders.sort(by ROLE_ORDER.indexOf(rank(role)))
+
+photo(leader) = leader.photo ?? standIns[hash(leader.name) % standIns.length]
+```
+
+---
+
+## 13. Clients and partners marquee
+
+```text
+Add a "The world's most demanding operators." section: client and partner
+logos (Amazon, DHL, CBRE, Turner & Townsend, FABS, and others) in two rows
+that loop in opposite directions along gentle waves. Show the logos in their
+own colours, no boxes around them. Hovering pauses the row. On mobile, at least
+three logos must be visible at once. Logos and names are uploaded and edited
+from the admin panel, and either the logo or the text can be hidden.
+```
+
+```text
+PSEUDO CODE
+
+rows = split(partners, 2)
+row[0] moves left, row[1] moves right
+each row follows its own sine wave (different crest count), staying in its lane
+partner.showLogo ? <img logo/> : null ;  partner.showName ? <span name/> : null
+```
+
+---
+
+## 14. Services page
+
+```text
+Build the Services page:
+
+1. Hero "One partner. Every discipline." on a navy background, with tags
+   (Design, Build, Precast, Supply) and a row of 8 tall image panels:
+   Warehousing & Logistics Parks, Industrial Construction, Precast
+   Construction, Infrastructure Development, MEP Works, PEB & Fabrication,
+   Interior Works, RMC Plant. The selected panel opens wide to show its title
+   and summary; the others stay narrow with a number and an arrow.
+2. Service chapters: on desktop, pin the block and let the page scroll carry
+   the chapters sideways, one screen each. A numbered list on the left tracks
+   the current chapter ("01 / 07") with a "Next:" link. Each chapter has a
+   jelly-framed photo, a description, an "On site" example card and a "Scope
+   of work" list. Each scroll settles on the next chapter.
+3. RMC plant section: product range, quality assurance, fleet & logistics, and
+   key strengths.
+4. On mobile, chapters stack vertically.
+```
+
+```text
+PSEUDO CODE
+
+ServicesHero:
+  panels.map((p, i) => <Panel flex={i == active ? 6 : 1}/>)   // CSS flex transition
+  click / hover -> active = i
+
+ServiceChapters (desktop, tall enough screens):
+  pin block at top = 104px (under the nav)
+  track.x = -progress * (COUNT - 1) * 100vw
+  rail bar height = progress
+  on scrollEnd: snap to nearest chapter in the direction of travel
+  #slug in URL -> scroll to that chapter's position along the pin
+mobile -> chapters stacked
+```
+
+---
+
+## 15. Controls and QHSE page
+
+```text
+Merge the old Planning and Quality pages into one "Controls & QHSE" page on a
+white background. Lay it out as clear steps:
+
+Preconstruction → Planning → Quality → Safety → Progress monitoring → Handover
+
+- "The control cycle": Plan, Execute, Measure cards in the card arc.
+- Quality responsibilities as a two-column checklist.
+- Emergency response steps (Detect, Alert, Evacuate, Assemble, Account, All
+  clear) and near-miss reporting steps (Immediate action, Report, Identify
+  root cause, Corrective action, Preventive action, Learn & share) as numbered
+  flows.
+- A progress marquee at the bottom. Remove any organisation hierarchy chart.
+```
+
+```text
+PSEUDO CODE
+
+steps = [Preconstruction, Planning, Quality, Safety, Progress, Handover]
+steps.map((s, i) => <Step n={i+1} title={s.title} points={s.points}/>)
+flows.map(flow => <NumberedFlow items={flow.items} note={flow.note}/>)
+```
+
+---
+
+## 16. Careers, Get a Quote and contact emails
+
+```text
+1. Careers page: hero "Build your career where things get built." with a
+   "Latest openings" card. List open roles from the database. Each role has an
+   Apply form (name, email, phone, role, experience, message).
+2. Get a Quote page: a step-by-step "quote studio" form: project type, site
+   location, area, timeline, then contact details. Departments: Managing
+   Director, BD, Accounts, Planning, Quality, HSE, HR.
+3. Contact page: form plus an accurate, light-coloured map of the head office.
+4. Send every form by email with Resend:
+   - job applications -> HR inbox
+   - quote requests   -> BD inbox
+   - contact form     -> info@ inbox
+   Set reply-to to the person's email. Validate on the server and escape all
+   input. Keep the API key and the inbox addresses in environment variables.
+```
+
+```text
+PSEUDO CODE
+
+POST /api/enquiry { type, fields }
+  if type not in ["application", "quote", "contact"]: 400
+  fields = trim and cap each value at 4000 chars
+  if !fields.name or !validEmail(fields.email): 400
+
+  to = { application: env.HR_EMAIL,
+         quote:       env.BD_EMAIL,
+         contact:     env.INFO_EMAIL }[type] ?? env.FALLBACK_EMAIL
+
+  subject = application -> "Job application — {role} — {name}"
+            quote       -> "Quote request — {company}"
+            contact     -> "Website enquiry — {name}"
+
+  html = table of escape(key) / escape(value)
+  send via the Resend email API
+       { from, to, reply_to: fields.email, subject, html }
+  ok ? 200 : 502
+```
+
+---
+
+## 17. Admin panel
+
+```text
+Add a password-protected admin panel at /admin so the client can update the
+site without a developer:
+
+- Edit, add and delete: projects, gallery photos, building photos and
+  captions, home page sections, leadership photos, job openings, and partners
+  (name + logo upload, with options to hide the text or the logo).
+- Store data in Neon Postgres. Upload images to Cloudinary and delete the old
+  image when one is replaced.
+- Security:
+  - one admin account, password hashed with scrypt
+  - signed, httpOnly, same-site session cookie that lasts 8 hours
+  - lock an IP address out for 15 minutes after 3 wrong passwords
+  - "Forgot password" emails a one-time reset link that expires in 30 minutes
+    (max 3 per hour)
+  - "Change password" signs out every other session
+  - password rules: at least 10 characters, letters and numbers, not
+    containing the username
+- No smooth-scroll or preloader on admin pages.
+```
+
+```text
+PSEUDO CODE
+
+tables: admin_account, admin_login_attempts, admin_reset_tokens,
+        projects, gallery_items, building_photos, home_items, jobs, partners
+
+login(username, password, ip):
+  if lockedFor(ip) > 0: 429 "try again in N minutes"
+  account = checkCredentials(username, password)   // check both, constant time
+  if !account:
+    left = recordFailure(ip)        // at 3 failures: locked_until = now + 15 min
+    return 401 "{left} attempts left"
+  clearFailures(ip)
+  set cookie = "{expiry}.{sessionVersion}.{hmac(secret, expiry.version)}"
+
+isAdmin():
+  verify hmac, expiry > now, version == account.sessionVersion
+
+changePassword(old, new):
+  require isAdmin and old is correct and passwordProblem(new) == null
+  store scrypt(new); sessionVersion += 1   // logs out other sessions
+
+forgot():
+  if resets in last hour < 3:
+    token = random; store sha256(token), expires now + 30 min
+    email link /admin/reset?token=...
+
+upload(image):
+  { url, publicId } = cloudinary.upload(image)
+  on replace: cloudinary.destroy(oldPublicId)
+```
+
+---
+
+## 18. Mobile rules
+
+```text
+Check the whole site on mobile (including iOS Safari) and apply these rules
+everywhere:
+
+- Every row of cards becomes a horizontal swipe row on mobile only.
+- Hero text must never overlap; use shorter text on mobile.
+- Curved arcs and ribbons keep the same curved look as on the laptop.
+- No flicker while scrolling pinned sections (use native scroll and fixed
+  pins on mobile).
+- The full hero is visible at 100% zoom, with no white gap when the address
+  bar hides.
+- The mobile menu's close button is always visible.
+```
+
+```text
+PSEUDO CODE
+
+.cards { display: grid }
+@media (max-width: 767px) {
+  .cards { display: flex; overflow-x: auto; scroll-snap-type: x mandatory }
+  .cards > * { flex: 0 0 80%; scroll-snap-align: start }
+}
+
+hero height = 100lvh (picture), copy inside 100svh
+ScrollTrigger.config({ ignoreMobileResize: true })
+pins on mobile: pinType "fixed" (no transform pin)
+```
+
+---
+
+## 19. Speed and polish pass
+
+```text
+Test the full load time and speed of the site and fix anything slow:
+- 3D scenes must not delay the rest of the page. Load them only near the
+  viewport.
+- Hero frames: coarse-to-fine loading, a limited number of requests at a time,
+  smaller frames on phones, and keep them sharp (no quality drop).
+- Serve images through the Next.js image optimiser with the right sizes.
+- Replace the default favicon with the company logo mark.
+- Add Privacy Policy and Terms pages.
+- Run a production build and fix every error before deploying to Vercel.
+```
+
+```text
+PSEUDO CODE
+
+for each heavy thing (3D scene, frame sequence, large gallery):
+  defer until idle or near viewport
+  cap concurrent requests
+  pick asset size from the device (DPR, width, pointer type)
+
+npm run build  ->  fix errors  ->  deploy
+```
