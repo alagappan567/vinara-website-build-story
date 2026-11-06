@@ -37,6 +37,26 @@ The site was built almost entirely by prompting an AI coding agent (Claude Code)
       <img src="screenshots/05-our-work.png" alt="Our Work"><br>
       <b>Our Work.</b> A gallery that scrolls on its own, with cards that open to show project details.
     </td>
+    <td width="50%" valign="top">
+      <img src="screenshots/06-services-hero.png" alt="Services page hero"><br>
+      <b>Services page.</b> Eight service cards in a row. The one you pick opens up wide.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="screenshots/07-service-detail.png" alt="Service detail"><br>
+      <b>Service detail.</b> Each service gets its own panel, with a numbered list on the left and the scope of work on the right.
+    </td>
+    <td width="50%" valign="top">
+      <img src="screenshots/08-site-plan-buildings.png" alt="Site plan and building stats"><br>
+      <b>Site plan and buildings.</b> The 3D park next to a card for each building, showing its built-up area, share of the site and status.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="screenshots/09-leadership.png" alt="Leadership"><br>
+      <b>Leadership.</b> Team portraits on a curved strip that scrolls across the page.
+    </td>
     <td width="50%"></td>
   </tr>
 </table>
