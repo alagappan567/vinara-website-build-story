@@ -1,8 +1,8 @@
 # How we built the Vinara Infra LLP website
 
-This repo tells the story of how the [Vinara Infra LLP](https://www.vinara.co.in) website was built. It has the screenshots, the prompts we used, and the process. It does **not** contain the website's source code.
+This repo tells the story of how the Vinara Infra LLP website was built. It has the screenshots, the prompts we used, and the process. It does **not** contain the website's source code.
 
-The site was built almost entirely by prompting an AI coding agent ([Claude Code](https://claude.com/claude-code)). We looked at the site in the browser, took screenshots, and wrote short plain-English instructions. The agent changed the code, and we checked the result and repeated.
+The site was built almost entirely by prompting an AI coding agent (Claude Code). We looked at the site in the browser, took screenshots, and wrote short plain-English instructions. The agent changed the code, and we checked the result and repeated.
 
 - **[PROMPTS.md](PROMPTS.md)** has all 238 prompts in order, grouped by phase.
 - **[screenshots/](screenshots/)** has the finished site.
